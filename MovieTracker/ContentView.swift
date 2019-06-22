@@ -8,17 +8,15 @@
 
 import SwiftUI
 
+
 struct ContentView : View {
+    
+
     var body: some View {
-        ZStack {
-            Image("code")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text("I LOVE CODE")
-            .foregroundColor(.white)
-            .font(.system(.largeTitle))
-        }
-        
+       PresentationButton(Text("Go to next"), destination: ContentView())
+    }
+    func hello(){
+        print("Tapped")
     }
 }
 

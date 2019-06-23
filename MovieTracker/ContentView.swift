@@ -11,12 +11,35 @@ import SwiftUI
 
 struct ContentView : View {
     
+    @State var title: String = ""
+    @State var rating = 3.0
+    @State var seen = false
 
     var body: some View {
-       PresentationButton(Text("Go to next"), destination: ContentView())
-    }
-    func hello(){
-        print("Tapped")
+        List {
+            Section {
+                VStack (alignment: .leading){
+                    Text("Title").font(.subheadline)
+                    .foregroundColor(.gray)
+                    TextField($title).background(Color.gray)
+                }
+            }
+            Section {
+                VStack (alignment: .leading){
+                    Text("Rating").font(.subheadline)
+                        .foregroundColor(.gray)
+                    HStack {
+                        Spacer()
+                        Text(String(repeating: "★" , count: Int(rating)))
+                            .font(.title)
+                            .foregroundColor(.red)
+                        Spacer()
+                    }
+                    
+                    Slider(value: $rating, from: 1.0, through: 5.0, by: 1.0)
+                }
+            }
+        }.listStyle(.grouped)
     }
 }
 

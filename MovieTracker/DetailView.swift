@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DetailView.swift
 //  MovieTracker
 //
 //  Created by DARRELL A PAYNE on 6/20/19.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct ContentView : View {
+struct DetailView : View {
     
     @State var title: String = ""
     @State var rating = 3.0
@@ -19,15 +19,13 @@ struct ContentView : View {
         List {
             Section {
                 VStack (alignment: .leading){
-                    Text("Title").font(.subheadline)
-                    .foregroundColor(.gray)
+                    ControlTitle(title: "Title")
                     TextField($title).background(Color.gray)
                 }
             }
             Section {
                 VStack (alignment: .leading){
-                    Text("Rating").font(.subheadline)
-                        .foregroundColor(.gray)
+                   ControlTitle(title: "Rating")
                     HStack {
                         Spacer()
                         Text(String(repeating: "★" , count: Int(rating)))
@@ -39,6 +37,29 @@ struct ContentView : View {
                     Slider(value: $rating, from: 1.0, through: 5.0, by: 1.0)
                 }
             }
+            Section {
+                VStack (alignment: .leading){
+                    ControlTitle(title: "Watched")
+                    Toggle(isOn: $seen) {
+                        if title == "" {
+                            Text("I have seen this movie")
+                        }else {
+                            Text("I have seen \(title)")
+                        }
+                    }
+                }
+            }
+            Section {
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Save")
+                        Spacer()
+                    }
+                }
+            }
         }.listStyle(.grouped)
     }
 }
@@ -46,7 +67,15 @@ struct ContentView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DetailView()
     }
 }
 #endif
+
+struct ControlTitle : View {
+    var title: String
+    var body: some View {
+        return Text(title).font(.subheadline)
+            .foregroundColor(.gray)
+    }
+}

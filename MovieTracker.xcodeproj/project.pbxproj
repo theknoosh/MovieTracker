@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1645023D22C44F19008143C2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645023C22C44F19008143C2 /* Movie.swift */; };
+		1645023F22C44F86008143C2 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645023E22C44F86008143C2 /* MovieList.swift */; };
 		166E59EE22BC645F00B68BFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E59ED22BC645F00B68BFF /* AppDelegate.swift */; };
 		166E59F022BC645F00B68BFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E59EF22BC645F00B68BFF /* SceneDelegate.swift */; };
 		166E59F322BC645F00B68BFF /* MovieTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 166E59F122BC645F00B68BFF /* MovieTracker.xcdatamodeld */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1645023C22C44F19008143C2 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1645023E22C44F86008143C2 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		166E59EA22BC645F00B68BFF /* MovieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		166E59ED22BC645F00B68BFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		166E59EF22BC645F00B68BFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				166E59FE22BC646200B68BFF /* Info.plist */,
 				166E59F122BC645F00B68BFF /* MovieTracker.xcdatamodeld */,
 				166E59F822BC646200B68BFF /* Preview Content */,
+				1645023C22C44F19008143C2 /* Movie.swift */,
+				1645023E22C44F86008143C2 /* MovieList.swift */,
 			);
 			path = MovieTracker;
 			sourceTree = "<group>";
@@ -149,10 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1645023F22C44F86008143C2 /* MovieList.swift in Sources */,
 				166E59F322BC645F00B68BFF /* MovieTracker.xcdatamodeld in Sources */,
 				166E59EE22BC645F00B68BFF /* AppDelegate.swift in Sources */,
 				166E59F522BC645F00B68BFF /* DetailView.swift in Sources */,
 				166E59F022BC645F00B68BFF /* SceneDelegate.swift in Sources */,
+				1645023D22C44F19008143C2 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

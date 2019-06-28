@@ -11,16 +11,19 @@ import SwiftUI
 
 struct DetailView : View {
     
-    @State var title: String = ""
-    @State var rating = 3.0
-    @State var seen = false
+    @State var movie: Movie = Movie()
+    @Environment(\.isPresented) var isPresented
+    
+//    @State var title: String = ""
+//    @State var rating = 3.0
+//    @State var seen = false
 
     var body: some View {
         List {
             Section {
                 VStack (alignment: .leading){
                     ControlTitle(title: "Title")
-                    TextField($title).background(Color.gray)
+                    TextField($movie.title)
                 }
             }
             Section {
@@ -28,30 +31,30 @@ struct DetailView : View {
                    ControlTitle(title: "Rating")
                     HStack {
                         Spacer()
-                        Text(String(repeating: "★" , count: Int(rating)))
+                        Text(String(repeating: "★" , count: Int(movie.rating)))
                             .font(.title)
                             .foregroundColor(.red)
                         Spacer()
                     }
                     
-                    Slider(value: $rating, from: 1.0, through: 5.0, by: 1.0)
+                    Slider(value: $movie.rating, from: 1.0, through: 5.0, by: 1.0)
                 }
             }
             Section {
                 VStack (alignment: .leading){
                     ControlTitle(title: "Watched")
-                    Toggle(isOn: $seen) {
-                        if title == "" {
+                    Toggle(isOn: $movie.seen) {
+                        if movie.title == "" {
                             Text("I have seen this movie")
                         }else {
-                            Text("I have seen \(title)")
+                            Text("I have seen \(movie.title)")
                         }
                     }
                 }
             }
             Section {
                 Button(action: {
-                    
+                    self.isPresented?.value = false
                 }) {
                     HStack {
                         Spacer()
@@ -67,7 +70,7 @@ struct DetailView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(movie: Movie())
     }
 }
 #endif

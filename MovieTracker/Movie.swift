@@ -13,7 +13,7 @@ struct Movie: Identifiable {
     var id: UUID = UUID()
     
     var title: String = "Rambo"
-    var rating: Double = 3.0
+    var rating: Double = 3
     var seen: Bool = false
 }
 

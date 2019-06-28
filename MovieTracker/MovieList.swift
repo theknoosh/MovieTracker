@@ -13,8 +13,16 @@ struct MovieList : View {
     var movies: [Movie] = [Movie(), Movie(), Movie()]
     
     var body: some View {
-        List(movies){ movie in
-            Text(movie.title)
+        NavigationView {
+            List{
+                PresentationButton(Text("Add Movie"), destination: DetailView(movie: Movie()))
+                .foregroundColor(.blue)
+                ForEach(movies){ movie in
+                    NavigationButton(destination: DetailView()) {
+                        Text(movie.title)
+                    }
+                }
+            }
         }
     }
 }

@@ -10,14 +10,14 @@ import SwiftUI
 
 struct MovieList : View {
     
-    var movies: [Movie] = [Movie(), Movie(), Movie()]
+    @ObjectBinding var movieStore = MovieStore()
     
     var body: some View {
         NavigationView {
             List{
                 PresentationButton(Text("Add Movie"), destination: DetailView(movie: Movie()))
                 .foregroundColor(.blue)
-                ForEach(movies){ movie in
+                ForEach(movieStore.movies){ movie in
                     NavigationButton(destination: DetailView()) {
                         Text(movie.title)
                     }

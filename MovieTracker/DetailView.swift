@@ -13,10 +13,6 @@ struct DetailView : View {
     
     @State var movie: Movie = Movie()
     @Environment(\.isPresented) var isPresented
-    
-//    @State var title: String = ""
-//    @State var rating = 3.0
-//    @State var seen = false
 
     var body: some View {
         List {
@@ -36,7 +32,6 @@ struct DetailView : View {
                             .foregroundColor(.red)
                         Spacer()
                     }
-                    
                     Slider(value: $movie.rating, from: 1.0, through: 5.0, by: 1.0)
                 }
             }

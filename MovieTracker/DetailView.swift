@@ -13,6 +13,8 @@ struct DetailView : View {
     
     @State var movie: Movie = Movie()
     @Environment(\.isPresented) var isPresented
+    @ObjectBinding var movieStore: MovieStore
+
 
     var body: some View {
         List {
@@ -49,7 +51,9 @@ struct DetailView : View {
             }
             Section {
                 Button(action: {
+                    self.movieStore.addMovie(movie: self.movie)
                     self.isPresented?.value = false
+                    
                 }) {
                     HStack {
                         Spacer()
@@ -65,7 +69,7 @@ struct DetailView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        DetailView(movie: Movie())
+        DetailView(movie: Movie(), movieStore: MovieStore())
     }
 }
 #endif

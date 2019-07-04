@@ -15,10 +15,10 @@ struct MovieList : View {
     var body: some View {
         NavigationView {
             List{
-                PresentationButton(Text("Add Movie"), destination: DetailView(movie: Movie()))
+                PresentationButton(Text("Add Movie"), destination: DetailView(movie: Movie(), movieStore: movieStore))
                 .foregroundColor(.blue)
                 ForEach(movieStore.movies){ movie in
-                    NavigationButton(destination: DetailView()) {
+                    NavigationButton(destination: DetailView(movie: movie, movieStore: self.movieStore)) {
                         Text(movie.title)
                     }
                 }

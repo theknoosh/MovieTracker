@@ -13,7 +13,7 @@ struct Movie: Identifiable {
     
     var id: UUID = UUID()
     
-    var title: String = "Rambo"
+    var title: String = ""
     var rating: Double = 3
     var seen: Bool = false
 }
@@ -23,7 +23,7 @@ class MovieStore: BindableObject {
     
     var movies: [Movie] {
         didSet {
-            didChange.send()
+            didChange.send(())
         }
     }
     
@@ -36,6 +36,10 @@ class MovieStore: BindableObject {
         
         movies = [movie1, movie2]
         
+    }
+    
+    func addMovie(movie: Movie){
+        movies.append(movie)
     }
     
 }

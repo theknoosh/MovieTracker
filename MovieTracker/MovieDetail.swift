@@ -9,13 +9,13 @@
 import SwiftUI
 
 
-struct DetailView : View {
+struct MovieDetail : View {
     
     @State var movie: Movie = Movie()
     @Environment(\.isPresented) var isPresented
     @ObjectBinding var movieStore: MovieStore
-
-
+    var newMovie: Bool
+    
     var body: some View {
         List {
             Section {
@@ -50,15 +50,17 @@ struct DetailView : View {
                 }
             }
             Section {
-                Button(action: {
-                    self.movieStore.addMovie(movie: self.movie)
-                    self.isPresented?.value = false
-                    
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Save")
-                        Spacer()
+                if newMovie {
+                    Button(action: {
+                        self.movieStore.addMovie(movie: self.movie)
+                        self.isPresented?.value = false
+                        
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Save")
+                            Spacer()
+                        }
                     }
                 }
             }
@@ -69,7 +71,7 @@ struct DetailView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        DetailView(movie: Movie(), movieStore: MovieStore())
+        MovieDetail(movie: Movie(), movieStore: MovieStore(), newMovie: true)
     }
 }
 #endif
